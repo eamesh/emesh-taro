@@ -14,7 +14,7 @@
 
 <script>
 import { reactive, toRefs } from 'vue';
-import Counter from '../../components/Counter.vue'
+import Counter from '../../components/Counter.vue';
 
 export default {
   name: 'Index',
@@ -40,9 +40,9 @@ export default {
     return {
       ...toRefs(state),
       handleClick
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
