@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import { widgetDataProps } from '@/utils';
-import { defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref, unref } from 'vue';
 
 import './style.scss';
 import Taro from '@tarojs/taro';
@@ -62,15 +62,34 @@ export default defineComponent({
 
   setup (props) {
     const model = ref(props.data);
+    const modelUnref = unref(model);
+
+    const titleStyle = computed(() => {
+      return {
+        ...modelUnref.title.style,
+        fontSize: Taro.pxTransform(modelUnref.title.style.fontSize)
+      };
+    });
+
+    const descriptionStyle = computed(() => {
+      return {
+        ...modelUnref.description.style,
+        fontSize: Taro.pxTransform(modelUnref.description.style.fontSize)
+      };
+    });
 
     return {
-      model
+      model,
+      titleStyle,
+      descriptionStyle
     };
   },
 
   render () {
     const {
-      model
+      model,
+      titleStyle,
+      descriptionStyle
     } = this;
 
     return (
@@ -82,17 +101,11 @@ export default defineComponent({
             divider: model.bottomDivider
           }
         ]}>
-          <View class='free-title-text__title' style={{
-            ...model.title.style,
-            fontSize: Taro.pxTransform(model.title.style.fontSize)
-          }}>{model.title.text}</View>
+          <View class='free-title-text__title' style={titleStyle}>{model.title.text}</View>
           {
             model.description.text && (
               <View class='free-title-text__sub'>
-                <View class='free-title-text__desc' style={{
-                  ...model.description.style,
-                  fontSize: Taro.pxTransform(model.description.style.fontSize)
-                }}>{model.description.text}</View>
+                <View class='free-title-text__desc' style={descriptionStyle}>{model.description.text}</View>
               </View>
             )
           }
