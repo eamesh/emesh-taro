@@ -1,0 +1,36 @@
+.free-title-text {
+  padding: 0 16px;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: initial;
+  background-color: red;
+
+  &__content {
+    position: relative;
+    padding: 16px 0;
+  }
+
+  &__sub {
+    margin-top: 8px;
+  }
+
+  .divider {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+      transform-origin: 0 0;
+      content: " ";
+      pointer-events: none;
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  &-center {
+    text-align: center;
+  }
+}

@@ -1,3 +1,5 @@
+import path from 'path';
+
 const config = {
   projectName: 'emesh-taro',
   date: '2022-4-13',
@@ -24,7 +26,7 @@ const config = {
   },
   framework: 'vue3',
   sass:{
-    data: `@import "./src/styles/nutui/variables.scss";`
+    data: '@import "./src/styles/nutui/variables.scss";'
   },
   mini: {
     postcss: {
@@ -67,12 +69,15 @@ const config = {
         }
       }
     }
+  },
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src'),
   }
-}
+};
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+    return merge({}, config, require('./dev'));
   }
-  return merge({}, config, require('./prod'))
-}
+  return merge({}, config, require('./prod'));
+};

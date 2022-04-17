@@ -1,25 +1,17 @@
 <template>
   <view class="index">
-    <view>
-      <img src="" alt="">
-    </view>
-    {{ msg }}
-    <view class="btn">
-      <nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
-    </view>
-    <nut-toast :msg="msg" v-model:visible="show" :type="type" :cover="cover" />
-    <Counter />
+    <TitleText id={1} />
   </view>
 </template>
 
 <script>
 import { reactive, toRefs } from 'vue';
-import Counter from '../../components/Counter.vue';
+import TitleText from '../../components/free/title-text';
 
 export default {
   name: 'Index',
   components: {
-    Counter
+    TitleText
   },
   setup(){
     const state = reactive({
@@ -50,6 +42,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
 }
 </style>
