@@ -1,17 +1,21 @@
 <template>
   <view class="index">
     <TitleText id={1} />
+    <WhiteHeight id={2} />
   </view>
 </template>
 
 <script>
 import { reactive, toRefs } from 'vue';
 import TitleText from '../../components/free/title-text';
+import WhiteHeight from '../../components/free/white-height';
+
 
 export default {
   name: 'Index',
   components: {
-    TitleText
+    TitleText,
+    WhiteHeight
   },
   setup(){
     const state = reactive({
