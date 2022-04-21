@@ -36,7 +36,7 @@ class Http {
         timeout: 30000,
         header,
         success: (response) => {
-          resolve(response.data.data);
+          resolve(response.data);
         },
         fail: (error) => {
           reject(error);
