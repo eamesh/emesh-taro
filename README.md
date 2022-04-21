@@ -1,8 +1,10 @@
 ## Emesh-taro
 
-Emesh 多端小程序
+Emesh 多端小程序  
+动态渲染完成， 有时间继续完成Widgets开发
 
 ## Feature
+- [x] 动态渲染
 - [x] 标题文本
 - [x] 辅助空白
 - [ ] 图片广告
