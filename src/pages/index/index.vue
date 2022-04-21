@@ -6,10 +6,9 @@
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue';
-import TitleText from '../../components/free/title-text';
-import WhiteHeight from '../../components/free/white-height';
-
+import TitleText from '@/components/free/title-text';
+import WhiteHeight from '@/components/free/white-height';
+import { getHome } from '@/api/decorate/decorate';
 
 export default {
   name: 'Index',
@@ -18,25 +17,12 @@ export default {
     WhiteHeight
   },
   setup(){
-    const state = reactive({
-      msg: '欢迎使用 NutUI3.0 开发小程序',
-      msg2: '你成功了～',
-      type: 'text',
-      show: false,
-      cover: false
-    });
+    async function handleGetHome () {
+      const response = await getHome();
+      console.log(response);
+    }
 
-    const handleClick = (type, msg, cover = false) => {
-      state.show = true;
-      state.msg2 = msg;
-      state.type = type;
-      state.cover = cover;
-    };
-
-    return {
-      ...toRefs(state),
-      handleClick
-    };
+    handleGetHome();
   }
 };
 </script>

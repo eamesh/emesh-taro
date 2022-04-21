@@ -1,6 +1,9 @@
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: '"production"',
+    HOST: '"http://localhost"',
+    API_PREFIX: '"api"',
+    API_VERSION: '"v1"'
   },
   defineConstants: {
   },
