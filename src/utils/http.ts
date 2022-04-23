@@ -23,8 +23,9 @@ class Http {
 
       //
       try {
-        const token = Taro.getStorageSync(ACCESS_TOKEN);
-
+        // 使用临时TOKEN
+        const token = Taro.getStorageSync(ACCESS_TOKEN) || '4|jzeuroVvWNRvGZzKbBkjnFLjPT1g1j0vuo4tdZ1i';
+        // console.log(token);
         if (token) {
           header.Authorization = `Bearer ${token}`;
         }

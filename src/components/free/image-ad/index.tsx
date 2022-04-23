@@ -52,10 +52,16 @@ export default defineComponent({
       };
     });
 
+    // Swiper 高度
+    const swiperContainerHeight = computed(() => {
+      return (parseInt(Taro.pxTransform(375).replace(/[a-z]+/, '')) / 750 * Taro.getSystemInfoSync().windowWidth) / (375/200);
+    });
+
     return {
       model,
       swiperItemStyle,
-      swiperImageStyle
+      swiperImageStyle,
+      swiperContainerHeight
     };
   },
 
@@ -63,18 +69,18 @@ export default defineComponent({
     const {
       model,
       swiperItemStyle,
-      swiperImageStyle
+      swiperImageStyle,
+      swiperContainerHeight
     } = this;
 
     return (
       <View class='image-ad'>
         <Swiper
-          height={parseInt(Taro.pxTransform(200).replace(/[a-z]+/, '')) * (200/375)}
+          height={swiperContainerHeight}
           initPage={0}
           paginationVisible={true}
           paginationColor="#426543"
           autoPlay="3000"
-
         >
           {
             model.ads.length ? model.ads.map(ad => {
