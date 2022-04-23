@@ -1,0 +1,11 @@
+.image-nav {
+  .nut-grid-item__content {
+    background: transparent;
+    background-color: transparent;
+    border-color: var(--border-color);
+
+    .nut-grid-item__text {
+      color: inherit;
+    }
+  }
+}
