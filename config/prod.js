@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     NODE_ENV: '"production"',
-    HOST: '"http://localhost"',
+    HOST: '"https://api.v1.emesh.cc"',
     API_PREFIX: '"api"',
     API_VERSION: '"v1"'
   },
