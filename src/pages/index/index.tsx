@@ -1,7 +1,7 @@
 import { getHome } from '@/api/decorate/decorate';
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import { defineComponent, h, ref } from 'vue';
+import { computed, defineComponent, h, ref } from 'vue';
 import widgets from './widgets';
 
 export default defineComponent({
@@ -9,14 +9,20 @@ export default defineComponent({
 
   setup () {
     const pageWidgets = ref<any[]>([]);
+    const pageStyle = ref<any>({});
+
+    const pageStyleComputed = computed(() => {
+      return {
+        backgroundColor: pageStyle.value.backgroundColor
+      };
+    });
 
     // 获取首页
     async function handleGetHome () {
       try {
         const response = await getHome();
         console.log(response);
-        handleSetPageTitle(response.title);
-
+        handleSetPage(response.data);
         handleWidgets(response.data.page);
       } catch (error) {
         console.log(error);
@@ -32,26 +38,40 @@ export default defineComponent({
       });
     }
 
-    function handleSetPageTitle (title: string) {
+    function handleSetPage (pageData: any) {
+      const freePage = pageData['free-page'];
+      const freeHeader = pageData['free-header'];
+
+      pageStyle.value = freePage;
+
+      Taro.setBackgroundColor({
+        backgroundColor: freePage.backgroundColor
+      });
+      Taro.setNavigationBarColor({
+        backgroundColor: freeHeader.backgroundColor,
+        frontColor: '#000000'
+      });
       Taro.setNavigationBarTitle({
-        title
+        title: freePage.title
       });
     }
 
     handleGetHome();
 
     return {
-      pageWidgets
+      pageWidgets,
+      pageStyleComputed,
     };
   },
 
   render () {
     const {
-      pageWidgets
+      pageWidgets,
+      pageStyleComputed,
     } = this;
 
     return (
-      <View class='index'>
+      <View class='page' style={pageStyleComputed}>
         {pageWidgets.map(({ widget, data }, id) => {
           return h(widget, {
             id,
