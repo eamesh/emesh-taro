@@ -1,7 +1,8 @@
 import { View } from '@tarojs/components';
-import { defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref, unref } from 'vue';
 import { Video } from '@nutui/nutui-taro';
 import { widgetDataProps } from '@/utils';
+import Taro from '@tarojs/taro';
 
 export interface NutuiVideoPlayerProps {
   type: 'resource' | 'network',
@@ -55,46 +56,58 @@ export default defineComponent({
 
   setup (props) {
     const model = ref(props.data);
+    const modelUnref = unref(model);
+
+    const videoPlayerStyle = computed(() => {
+      return {
+        paddingLeft: Taro.pxTransform(modelUnref.pagePadding),
+        paddingRight:  Taro.pxTransform(modelUnref.pagePadding),
+        // height: Taro.pxTransform(210)
+        height: `${Taro.getSystemInfoSync().windowWidth / (375/210)}px`
+      };
+    });
+
+    const videoStyle = computed(() => {
+      return {
+        borderRadius: modelUnref.radioType === 'round' ? Taro.pxTransform(8) : 0,
+        overflow: 'hidden'
+      };
+    });
 
     return {
-      model
+      model,
+      videoStyle,
+      videoPlayerStyle
     };
   },
 
   render () {
+    const {
+      model,
+      videoStyle,
+      videoPlayerStyle
+    } = this;
+
     return (
-      <View class='video-player' style={{
-        paddingLeft: `${this.model.pagePadding}px`,
-        paddingRight: `${this.model.pagePadding}px`,
-        height: '210px'
-      }}>
+      <View class='video-player' style={videoPlayerStyle}>
         {
-          this.model.type === 'resource' && this.model.resource.src ? (
+          model.type === 'resource' && model.resource.src ? (
             <Video
-              source={this.model.resource}
-              options={this.model.options}
-              style={{
-                borderRadius: this.model.radioType === 'round' ? '8px' : 0,
-                overflow: 'hidden'
-              }}
+              source={model.resource}
+              options={model.options}
+              style={videoStyle}
             >
             </Video>
-          ) : this.model.network.src ? (
+          ) : model.network.src ? (
             <Video
-              source={this.model.network}
-              options={this.model.options}
-              style={{
-                borderRadius: this.model.radioType === 'round' ? '8px' : 0,
-                overflow: 'hidden'
-              }}
+              source={model.network}
+              options={model.options}
+              style={videoStyle}
             >
             </Video>
           ) : <Video
-            options={this.model.options}
-            style={{
-              borderRadius: this.model.radioType === 'round' ? '8px' : 0,
-              overflow: 'hidden'
-            }}
+            options={model.options}
+            style={videoStyle}
           >
           </Video>
         }

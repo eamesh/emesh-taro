@@ -54,7 +54,7 @@ export default defineComponent({
 
     // Swiper 高度
     const swiperContainerHeight = computed(() => {
-      return (parseInt(Taro.pxTransform(375).replace(/[a-z]+/, '')) / 750 * Taro.getSystemInfoSync().windowWidth) / (375/200);
+      return Taro.getSystemInfoSync().windowWidth / (375/200);
     });
 
     return {
