@@ -33,7 +33,7 @@ jobs:
 
     - run: yarn global add @tarojs/cli
     - run: yarn install
-    - run: yarn build:h5
+    - run: yarn build:gh-pages
 
     - name: Commit gh-pages
       run: |

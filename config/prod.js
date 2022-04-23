@@ -9,6 +9,9 @@ module.exports = {
   },
   mini: {},
   h5: {
+    webpackChain (chain) {
+      process.env.GH_PAGES && chain.output.publicPath('./');
+    }
     /**
      * WebpackChain 插件配置
      * @docs https://github.com/neutrinojs/webpack-chain

@@ -27,7 +27,8 @@
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "lint:eslint": "eslint \"src/**/*.{vue,js,ts,tsx}\" --fix",
     "lint:stylelint": "stylelint --fix \"src/**/*.{vue,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:gh-pages": "export GH_PAGES=true && taro build --type h5"
   },
   "browserslist": [
     "last 3 versions",
