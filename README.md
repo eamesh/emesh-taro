@@ -4,8 +4,9 @@ Emesh 多端小程序
 
 ## Preview
 
-[预览](https://eamesh.github.io/emesh-taro/#/pages/index/index)  
-数据来自[eamesh/emesh](https://github.com/eamesh/emesh)  
+- [H5预览](https://eamesh.github.io/emesh-taro/#/pages/index/index)  数据来自[eamesh/emesh](https://github.com/eamesh/emesh)  
+- 微信小程序预览(未发布需提交体验版审核)
+<img width="200px" src="./src/assets/images/qrcode.jpg" />
 
 ## Feature
 - [x] 动态渲染
