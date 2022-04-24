@@ -1,0 +1,20 @@
+.page-category {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  .page-header {
+    height: 40px;
+    flex-direction: 0;
+  }
+
+  .page-tabs {
+    flex: 1;
+    overflow: hidden;
+
+    .scrollable {
+      box-sizing: border-box;
+    }
+  }
+}
