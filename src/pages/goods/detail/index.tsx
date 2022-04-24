@@ -1,6 +1,6 @@
 import { View, Image, Video, Text } from '@tarojs/components';
-import { computed, defineComponent, reactive, ref } from 'vue';
-import { Swiper, SwiperItem, Tag, Row, Col, Cell, CellGroup, Icon, Price } from '@nutui/nutui-taro';
+import { computed, defineComponent, onMounted, reactive, ref } from 'vue';
+import { Swiper, SwiperItem, Tag, Row, Col, Cell, CellGroup, Icon, Price, Sku, Button } from '@nutui/nutui-taro';
 import Taro from '@tarojs/taro';
 import SecKilling from '@/components/sec-killing';
 
@@ -8,6 +8,7 @@ import './style.scss';
 import ActionBar from '@/components/action-bar';
 import ActionBarIcon from '@/components/action-bar-icon';
 import ActionBarButton from '@/components/action-bar-button';
+import jsonData from './data';
 
 export default defineComponent({
   name: 'GoodsDetail',
@@ -61,6 +62,39 @@ export default defineComponent({
       };
     });
 
+    const base = ref(false);
+    const data = reactive({
+      sku: [],
+      goods: {}
+    });
+
+    onMounted(() => {
+      const { Sku, Goods, imagePathMap } = jsonData;
+      data.sku = Sku;
+      data.goods = Goods;
+    });
+    // 切换规格类目
+    const selectSku = (ss: string) => {
+      const { sku, skuIndex, parentSku, parentIndex } = ss;
+      if (sku.disable) return false;
+      data.sku[parentIndex].list.forEach((s) => {
+        s.active = s.id == sku.id;
+      });
+      data.goods = {
+        skuId: sku.id,
+        price: '4599.00',
+        imagePath:
+          '//img14.360buyimg.com/n4/jfs/t1/215845/12/3788/221990/618a5c4dEc71cb4c7/7bd6eb8d17830991.jpg'
+      };
+    };
+    // 底部操作按钮触发
+    const clickBtnOperate = (op:string)=>{
+      console.log('点击了操作按钮',op);
+    };
+    // 关闭商品规格弹框
+    const close = ()=>{};
+
+
     return {
       model,
       swiperData,
@@ -69,7 +103,12 @@ export default defineComponent({
       handleSwiperChange,
       handleSwichMode,
       swiperContainerHeight,
-      videoContainerStyle
+      videoContainerStyle,
+      base,
+      selectSku,
+      clickBtnOperate,
+      close,
+      data
     };
   },
 
@@ -82,7 +121,11 @@ export default defineComponent({
       handleSwiperChange,
       handleSwichMode,
       swiperContainerHeight,
-      videoContainerStyle
+      videoContainerStyle,
+      selectSku,
+      clickBtnOperate,
+      close,
+      data
     } = this;
 
     return (
@@ -169,7 +212,9 @@ export default defineComponent({
 
             <CellGroup>
               <Cell>
-                <View class='flex items-center goods-cell'>
+                <View class='flex items-center goods-cell'  onClick={() => {
+                    console.log(this.base = true);
+                  }}>
                   <View class='cell-title'>选择</View>
                   <View class='flex items-center justify-space-between flex-1'>
                     <View class='cell-extra'>asd</View>
@@ -236,6 +281,17 @@ export default defineComponent({
             </View> */}
           </View>
         </View>
+
+        <Sku
+          v-model:visible={this.base}
+          sku={data.sku}
+          btnOptions={['buy', 'cart']}
+          goods={data.goods}
+          onSelectSku={selectSku}
+          onClickBtnOperate={clickBtnOperate}
+          onClose={close}
+        >
+        </Sku>
       </View>
     );
   }

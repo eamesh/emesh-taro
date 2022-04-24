@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import { Button, Toast, Icon } from '@nutui/nutui-taro';
+import { Button, Toast, Icon, Popup } from '@nutui/nutui-taro';
 
 import './app.scss';
 
@@ -9,6 +9,6 @@ const App = createApp({
   // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 });
 
-App.use(createPinia()).use(Button).use(Toast).use(Icon);
+App.use(createPinia()).use(Button).use(Toast).use(Icon).use(Popup);
 
 export default App;
