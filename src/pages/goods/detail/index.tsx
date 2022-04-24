@@ -84,7 +84,7 @@ export default defineComponent({
 
     return (
       <View class='page page-goods'>
-        <View class='goods-slider'>
+        <View class='goods-slider' style={videoContainerStyle}>
           {
             showMode === 'image' ? (
               <Swiper
