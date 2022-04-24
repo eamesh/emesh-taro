@@ -46,6 +46,7 @@
     "@tarojs/runtime": "3.4.5",
     "@tarojs/taro": "3.4.5",
     "pinia": "^2.0.13",
+    "query-string": "^7.1.1",
     "taro-plugin-pinia": "^1.0.0",
     "vue": "^3.0.0"
   },
