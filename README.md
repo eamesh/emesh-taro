@@ -4,7 +4,7 @@ Emesh 多端小程序
 
 ## Preview
 
-- [H5预览](https://eamesh.github.io/emesh-taro/#/pages/index/index)
+- [H5预览](https://eamesh.github.io/emesh-taro)
 - 微信小程序预览(未发布需提交体验版审核)
 <img width="200px" src="./src/assets/images/qrcode.jpg" />
 
