@@ -1,5 +1,21 @@
 .page-goods {
   background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  &__header {
+    flex: 1;
+    overflow: auto;
+  }
+
+  &__bottom {
+    height: 50px;
+    flex-shrink: 0;
+    background-color: #fff;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 .swiper-container {
@@ -92,9 +108,55 @@
     }
 
     .text-decoration {
+      color: #ddd;
+
       view {
         text-decoration: line-through;
       }
     }
+  }
+
+  .title-wrap {
+    color: #333;
+    padding-top: 4px;
+  }
+
+  .extra-wrap {
+    font-size: 9px;
+  }
+}
+
+.goods-cell {
+  width: 100%;
+  font-size: 10px;
+
+  .cell-extra {
+    color: #333;
+  }
+
+  .cell-title {
+    margin-right: 10px;
+  }
+}
+
+.goods-content {
+  .content-label {
+    font-size: 10px;
+    color: #333;
+  }
+}
+
+.goods-action {
+  &__bar {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__icon {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

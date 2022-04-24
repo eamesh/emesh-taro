@@ -20,7 +20,9 @@ $text-color: #808080 !default;
 $disable-color: #ccc !default;
 $white: #fff !default;
 $black: #000 !default;
-$font-family: pingfang sc, microsoft yahei, helvetica, hiragino sans gb, simsun, sans-serif !default;
+
+// $font-family: pingfang sc, microsoft yahei, helvetica, hiragino sans gb, simsun, sans-serif !default;
+$font-family: 400 .24rem / 1.5 microsoft yahei,arial,lucida grande,verdana;
 
 // ---- Animation ----
 $animation-duration: .25s !default;

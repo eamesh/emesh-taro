@@ -1,3 +1,5 @@
+@import "./styles/common";
+
 .page {
   width: 100vw;
   min-height: 100vh;
@@ -10,4 +12,8 @@
 
 .text-decoration {
   text-decoration: line-through;
+}
+
+.afe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
 }

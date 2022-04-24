@@ -14,7 +14,7 @@ const config = {
   outputRoot: 'dist',
   plugins: [
     'taro-plugin-pinia',
-    '@tarojs/plugin-html'
+    '@tarojs/plugin-html',
   ],
   defineConstants: {
   },

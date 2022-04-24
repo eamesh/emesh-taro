@@ -1,0 +1,27 @@
+.action-bar {
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+  height: 50px;
+  background-color: "#fff";
+
+  &-button {
+    &:nth-last-child(2) {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      margin-left: 5px;
+      background: linear-gradient(to right, #ffd01e, #ff8917);
+      border: 0;
+      color: #fff;
+    }
+
+    &:nth-last-child(1) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border: 0;
+      margin-right: 5px;
+      background: linear-gradient(to right, #ff6034, #ee0a24);
+      color: #fff;
+    }
+  }
+}

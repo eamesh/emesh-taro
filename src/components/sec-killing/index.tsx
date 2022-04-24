@@ -37,7 +37,9 @@ export default defineComponent({
           <View class='countdown'>
             <View class='countdown-header'>距结束还剩</View>
             <View class='countdown-content'>
-              <CountDown v-model={model.resetTime} endTime={model.end}>
+              <CountDown v-model={model.resetTime} endTime={model.end} {...{
+                'onUpdate:modelValue': () => {}
+              }}>
                 <View class="countdown-part-box">
                   <View class="part-item-symbol">{ model.resetTime.d }天</View>
                   <View class="part-item h">{ model.resetTime.h }</View>
