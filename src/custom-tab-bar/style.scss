@@ -1,0 +1,16 @@
+.global-tabbar {
+  display: flex;
+  background-color: #fff;
+
+  :global {
+    .nut-tabbar {
+      padding-bottom: none;
+    }
+  }
+
+  .tabbar {
+    .nut-tabbar {
+      padding-bottom: 2px solid red;
+    }
+  }
+}
