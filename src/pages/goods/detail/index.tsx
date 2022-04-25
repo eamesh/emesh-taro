@@ -187,7 +187,7 @@ export default defineComponent({
               <View class='goods-name'>
                 <Text class='goods-text'>摩托罗拉 edge s pro 旗舰骁龙870 1亿像素 50X潜望式变焦 10亿色144Hz臻彩屏 轻薄5G手机 12GB+256GB 青玉案</Text>
                 <View class='goods-favorite'>
-                  <nut-con name='star' />
+                  <nut-icon name='star' />
                   <Text>收藏</Text>
                 </View>
               </View>
@@ -198,8 +198,8 @@ export default defineComponent({
             <Cell>
               <View class='flex column'>
                 <View class='price-wrap'>
-                  <nut-rice class='price' price='1250.22' decimalDigits='2' needSymbol thousands />
-                  <nut-rice class='text-decoration' price='1250.22' decimalDigits='2' needSymbol thousands size='small' />
+                  <nut-price class='price' price='1250.22' decimalDigits='2' needSymbol thousands />
+                  <nut-price class='text-decoration' price='1250.22' decimalDigits='2' needSymbol thousands size='small' />
                 </View>
                 <View class='wrap title-wrap'>
                   精品速冻咖啡【买2盒送吸管杯】
@@ -220,7 +220,7 @@ export default defineComponent({
                     <View class='cell-extra'>asd</View>
                     <View class='cell-link'>
                       <Text>多种可选</Text>
-                      <nut-con size='8' name='right' />
+                      <nut-icon size='8' name='right' />
                     </View>
                   </View>
                 </View>
@@ -260,15 +260,15 @@ export default defineComponent({
             </ActionBar>
             {/* <View class='goods-action__bar'>
               <View role='button' class='goods-action__icon'>
-                <nut-con name='dongdong'></Icon>
+                <nut-icon name='dongdong'></Icon>
                 客服
               </View>
               <View role='button' class='goods-action__icon'>
-                <nut-con name='dongdong'></Icon>
+                <nut-icon name='dongdong'></Icon>
                 购物车
               </View>
               <View role='button' class='goods-action__icon'>
-                <nut-con name='dongdong'></Icon>
+                <nut-icon name='dongdong'></Icon>
                 店铺
               </View>
             </View> */}
