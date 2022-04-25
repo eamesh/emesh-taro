@@ -5,8 +5,8 @@
   overflow: hidden;
 
   .page-header {
-    height: 40px;
-    flex-direction: 0;
+    height: 80px;
+    flex-shrink: 0;
   }
 
   .page-tabs {
