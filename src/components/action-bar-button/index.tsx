@@ -9,11 +9,14 @@ export default defineComponent({
 
   render () {
     const {
-      $slots
+      $slots,
+      $props
     } = this;
 
     return (
-      <Button class='action-bar-button'>
+      <Button class='action-bar-button' {
+        ...$props
+      }>
         <Text>立即购买</Text>
         {$slots.default && $slots.default()}
       </Button>

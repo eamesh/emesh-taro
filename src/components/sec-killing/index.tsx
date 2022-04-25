@@ -1,6 +1,6 @@
 import { Text, View } from '@tarojs/components';
 import { defineComponent, reactive } from 'vue';
-import { Price, CountDown } from '@nutui/nutui-taro';
+import { CountDown } from '@nutui/nutui-taro';
 
 import './style.scss';
 
@@ -31,8 +31,8 @@ export default defineComponent({
     return (
       <View class='sec-killing'>
         <View class='content'>
-          <View class='price'>
-            <Price price="15213.1221" decimalDigits="2" needSymbol="true" thousands="true" ></Price>
+          <View class='nut-price'>
+            <nut-price nut-price={15213.1221} decimalDigits={2} needSymbol thousands ></nut-price>
           </View>
           <View class='countdown'>
             <View class='countdown-header'>距结束还剩</View>
