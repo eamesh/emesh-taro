@@ -32,7 +32,7 @@ export default defineComponent({
       <View class='sec-killing'>
         <View class='content'>
           <View class='nut-price'>
-            <nut-price nut-price={15213.1221} decimalDigits={2} needSymbol thousands ></nut-price>
+            <nut-price class='price' price={15213.1221} decimalDigits={2} needSymbol thousands ></nut-price>
           </View>
           <View class='countdown'>
             <View class='countdown-header'>距结束还剩</View>
